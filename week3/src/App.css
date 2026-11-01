@@ -2,99 +2,168 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
-  background: #fafafa;
+  background: #f4f1ee;
   color: #111;
 }
 
-button {
+.button {
   font: inherit;
 }
 
+.img {
+  max-width: 100%;
+  display: block;
+}
+
 .page {
-  min-height: 1000px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 100px 30px;
+  padding: 80px 20px;
 }
 
 .post {
   width: 100%;
   max-width: 700px;
-  height: 900px;
   overflow: hidden;
-  border: 1px solid #dbdbdb;
-  border-radius: 10px;
-  background: white;
+  border: 2px solid #2deeba;
+  border-radius: 18px;
+  background: #fffdfb;
+  box-shadow: 0 20px 40px rgba(25, 25, 25, 0.06);
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px 14px;
+}
+
+.playlist-image {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0e2d8;
+}
+
+.playlist-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playlist-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a786a;
 }
 
 .playlist-name {
-  position: relative;
-  left: 5px;
-  height: 100px;
-  gap: 20px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.music-row {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  gap: 16px;
+  margin: 6px 20px 22px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #d1fffb);
 }
-
-
-
-.playlist-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-
-
-
-
-
-
 
 .music-album {
-  position: relative;
-  left: 10px;
-  top: 10px;
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  display: block;
+  width: 108px;
+  height: 108px;
+  border-radius: 14px;
   object-fit: cover;
+  box-shadow: 0 12px 20px rgba(67, 42, 24, 0.12);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
 }
 
 .music-title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
   position: relative;
-  left: 120px;
-  bottom: 70px;
+  top: 20px;
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.1;
 }
 
 .music-artist {
-  margin: 0;
-  font-size: 17px;
   position: relative;
-  left: 121px;
-  bottom: 65px;
+  top: 20px;
+  margin: 0;
+  font-size: 1rem;
+  color: #7f7f7e;
+  letter-spacing: 0.08em;
 }
 
-.post-image {
+.music-play-button {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 450px;
+  bottom: 30px;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.image {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 440px;
+  object-fit: cover;
+  background: #f0ece9;
+}
+
+.post-content {
+  padding: 18px 18px 24px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.post-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.post-actions button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
 
 .post-actions svg {
@@ -102,15 +171,21 @@ button {
   height: 26px;
   fill: none;
   stroke: #111;
-  stroke-width: 1.7;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.post-content {
-  padding: 4px 14px 18px;
+.post-caption {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #2a2a2a;
 }
 
+.post-caption strong {
+  margin-right: 8px;
+}
 
 @media (max-width: 520px) {
   .page {
@@ -122,5 +197,18 @@ button {
     min-height: 100vh;
     border-radius: 0;
     border: 0;
+  }
+
+  .playlist-header {
+    padding-top: 16px;
+  }
+
+  .music-row {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .image {
+    height: 340px;
   }
 }

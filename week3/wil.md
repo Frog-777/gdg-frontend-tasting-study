@@ -19,7 +19,7 @@ A. 화면의 구성을 코드에 한 번에 담으면 구조를 이해하기 어
 2. Component
 : 화면에서 찾은 구조를 코드에서도 표현하는 단위(화면 일부를 하나의 단위로 표현)
 - Component 이름은 대문자로 시작한다
-비교)    html-<div/> 소문자로 시작
+비교:    html-<div/> 소문자로 시작
         Component-<Profile/> 대문자로 시작
 - 만든 Component는 JSX에서 태그처럼 사용할 수 있음 <Profile/>
 
