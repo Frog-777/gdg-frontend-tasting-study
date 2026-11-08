@@ -39,6 +39,32 @@ function Music({ title, artist, image }) {
 }
 
 function App() {
+  const songs = [
+    { id: 1, title: "노래 제목 1", artist: "가수 1", url: "https://www.youtube.com/watch?v=영상ID1" },
+    { id: 2, title: "노래 제목 2", artist: "가수 2", url: "https://www.youtube.com/watch?v=영상ID2" },
+    { id: 3, title: "노래 제목 3", artist: "가수 3", url: "https://www.youtube.com/watch?v=영상ID3" },
+  ];
+
+  const playSong = (url) => {
+    window.open(url, "_blank");
+  };
+
+  return (
+    <div>
+      {songs.map((song) => (
+        <div className="song" key={song.id}>
+          <span>{song.title} - {song.artist}</span>
+          <button onClick={() => playSong(song.url)}>▶ 재생</button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+/*
+function App() {
   return (
     <div className="playlist">
       <Playlist />
@@ -57,3 +83,4 @@ function App() {
 }
 
 export default App;
+*/
