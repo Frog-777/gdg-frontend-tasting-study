@@ -1,13 +1,13 @@
 import "./App.css";
 
 const songs = [
-  { id: 1, title: "Tonight", artist: "BIGBANG", image: "/images/bigbang-tonight.png" },
-  { id: 2, title: "Hold on", artist: "Justin Beiber", image: "/images/justinbeiber-holdon.jpg" },
-  { id: 3, title: "Hype Boy", artist: "NewJeans", image: "/images/newjeans-hypeboy.png" },
-  { id: 4, title: "One More Time", artist: "Alldayproject", image: "/images/alldayproject-onemoretime.png" },
-  { id: 5, title: "What you want", artist: "Cortis", image: "/images/cortis-whatyouwant.png" },
-  { id: 6, title: "Sandman", artist: "Beenzino", image: "/images/beenzino-sandman.png" },
-  { id: 7, title: "Lose my mind", artist: "Don toliver", image: "/images/dontoliver-losemymind.png" },
+  { id: 1, title: "Tonight", artist: "BIGBANG", image: "/images/bigbang-tonight.png", url: "https://www.youtube.com/watch?v=8d5QEWdHchk" },
+  { id: 2, title: "Hold on", artist: "Justin Beiber", image: "/images/justinbeiber-holdon.jpg", url: "https://www.youtube.com/watch?v=LWeiydKl0mU" },
+  { id: 3, title: "Hype Boy", artist: "NewJeans", image: "/images/newjeans-hypeboy.png", url: "https://www.youtube.com/watch?v=11cta61wi0g" },
+  { id: 4, title: "One More Time", artist: "Alldayproject", image: "/images/alldayproject-onemoretime.png", url: "https://www.youtube.com/watch?v=OgEwJ8a1OoY" },
+  { id: 5, title: "What you want", artist: "Cortis", image: "/images/cortis-whatyouwant.png", url: "https://www.youtube.com/watch?v=영상ID5" },
+  { id: 6, title: "Sandman", artist: "Beenzino", image: "/images/beenzino-sandman.png", url: "https://www.youtube.com/watch?v=영상ID6" },
+  { id: 7, title: "Lose my mind", artist: "Don toliver", image: "/images/dontoliver-losemymind.png", url: "https://www.youtube.com/watch?v=WWEs82u37Mw" },
 ];
 
 function Playlist() {
@@ -21,7 +21,11 @@ function Playlist() {
   );
 }
 
-function Music({ title, artist, image }) {
+const playSong = (url) => {
+  window.open(url, "_blank");
+};
+
+function Music({ title, artist, image, url }) {
   return (
     <div className="music-row">
       <img className="music-album" src={image} alt={`${title} 앨범커버`} />
@@ -29,7 +33,11 @@ function Music({ title, artist, image }) {
         <h3 className="music-title">{title}</h3>
         <p className="music-artist">{artist}</p>
       </div>
-      <button className="music-play-button" aria-label="재생">
+      <button
+        className="music-play-button"
+        aria-label="재생"
+        onClick={() => playSong(url)}
+      >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 2v20l17-10L4 2Z" />
         </svg>
@@ -38,32 +46,8 @@ function Music({ title, artist, image }) {
   );
 }
 
-function App() {
-  const songs = [
-    { id: 1, title: "노래 제목 1", artist: "가수 1", url: "https://www.youtube.com/watch?v=영상ID1" },
-    { id: 2, title: "노래 제목 2", artist: "가수 2", url: "https://www.youtube.com/watch?v=영상ID2" },
-    { id: 3, title: "노래 제목 3", artist: "가수 3", url: "https://www.youtube.com/watch?v=영상ID3" },
-  ];
 
-  const playSong = (url) => {
-    window.open(url, "_blank");
-  };
 
-  return (
-    <div>
-      {songs.map((song) => (
-        <div className="song" key={song.id}>
-          <span>{song.title} - {song.artist}</span>
-          <button onClick={() => playSong(song.url)}>▶ 재생</button>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default App;
-
-/*
 function App() {
   return (
     <div className="playlist">
@@ -75,6 +59,7 @@ function App() {
             title={song.title}
             artist={song.artist}
             image={song.image}
+            url={song.url}
           />
         ))}
       </div>
@@ -83,4 +68,3 @@ function App() {
 }
 
 export default App;
-*/
